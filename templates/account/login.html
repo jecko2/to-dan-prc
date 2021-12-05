@@ -7,103 +7,124 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 <!-- styles -->
 {% block stylesheet %}
-<link rel="stylesheet" href="{% static 'css/account/hero.css' %}">
-  <link rel="stylesheet" href="{% static 'css/account/fonts.css' %}">
-  <link rel="stylesheet" href="{% static 'css/account/forms.css' %}">
-{% endblock %}
-<!-- cdn links -->
-{% block cdn_links %}
-    {% include 'cdn_html_link/css_files.html' %}
+
+{% include 'front/modify-login/login_extra.html' %}
+
 {% endblock %}
 
+<!-- start -->
 {% block content %}
-<section class="hero section-login-page">
-  <div class="container container-login">
-    <div class="login-card-box">
-      <div class="head-login">
-        <h1 class="card-head">{% trans "Sign In" %}</h1>
-        <div class="logo-div">
-          <img src="" alt="" class="image-logo">
-        </div>
-      <form class="login" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %}
-          <!-- {{ form|crispy }} -->
-          <div id="id_login" class="form-group">
-            <label for="id_login" class="requiredField">
-              Email Address
-              <span class="asteriskField"></span>
-            </label>
-            <div class="email-address-input">
-              <i class="fas fa-envelope"></i> <span class="email-field">
-              <input type="email" name="login" id=""
-              placeholder="Email Address" autocomplete="email" class="emailinput emailInput form-control" required>
-            </span>
-            </div>
-          </div>
-          <div id="id_password" class="form-group">
-              <label for="" class="requiredField">Password<span class="asteriskField"></span></label>
-              <div class="password-field-input-box">
-                <i class="fas fa-lock"></i>
-                <span class="password-part">
-                  <input type="password" name="password" placeholder="Password" autocomplete="current-password" 
-                    class="passwordinput passwordInput form-control"  id="id_password" required>
-                </span>
-              </div>
-          </div>
-          <div class="form-group">
-            <div id="div_id_remember" class="form-check">
-              <input type="checkbox" name="remember" class="checkboxinput form-check-input" id="id_remember">
-              <label for="id_remember" class="form-check-label">Remember Me</label>
-            </div>
-          </div>
-          {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
-          <a class="button btn btn-outline-secondary" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-          <button class="btn btn-primary btn-lg" type="submit">Sign In</button>
-      </form>
-<div class="social-sign">
-  <div class="line-horizontal"></div>
-  <span class="sign-help-text">
-    <p class="text-aid">Or</p>
-  </span>
-</div>
-      <div class="social account-logins">
-        <div class="socialaccount_ballot">
-          {% get_providers as socialaccount_providers %}
-              {% if socialaccount_providers %}
-              <p class="card-info-social">
-                  <span> Sign in with </span>:
-                  <ul class="socialaccount_providers">
-                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-                  </ul>
-              </p>
-            </div>
+    <div class="container-fluid ">
+        <div class="container ">
+            <div class="row cdvfdfd">
+                <div class="col-lg-10 col-md-12 login-box">
 
-          {% include "socialaccount/snippets/login_extra.html" %}
 
-          {% else %}
-          <div class="signup-div-link">
-            <p class="sign-up-link">
-              {% blocktrans %}Please for a <p class="site-name">{{ site.name }} acoount</p> <span class="sign-url">
-                <a href="{{ signup_url }}">sign up</a>
-              </span>
-              {% endblocktrans %}
-            </p>
-          </div>
-          {% endif %}
-          <div class="signup-div-link normal-view">
-            <p class="sign-up-link">
-              {% blocktrans %}No account yet? <span class="sign-url">
-                <a href="{{ signup_url }}" class="btn btn-primary btn-lg">Register Now</a>
-              </span>
-              {% endblocktrans %}
-            </p>
-          </div>
+                    <form method="post" action="{% url 'account_login' %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 log-det">
+                                <div class="small-logo">
+                                    <i class="fab fa-asymmetrik"></i> Login Here
+                                </div>
+                                <p class="dfmn">
+                                    {% blocktrans %} Welcome back by Just providing your right email address and password.
+                                    Logginh in is easy and fast.
+                                    {% endblocktrans %}
+                                </p>
+    
+                                <div class="text-box-cont">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="email" class="form-control" placeholder="Email Address" 
+                                        aria-label="Email Address" name="login" autocomplete="email"
+                                            aria-describedby="basic-addon1" required>
+                                    </div>
+                                     <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                                        </div>
+                                        <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" 
+                                            aria-describedby="basic-addon1" autocomplete="current-password" required>
+                                    </div>
+                                    
+                                    <div class="input-group center">
+                                        {% if redirect_field_value %}
+                                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                                        {% endif %}
+                                        <button class="btn btn-danger btn-round">SIGN IN</button>
+                                    </div> 
+                                    <div class="row">
+                                        <p class="forget-p">Forgot your password? <span> <a 
+                                           style="color: crimson;" href="{% url 'account_reset_password' %}">
+                                            Reset Password
+                                        </a></span></p>
+                                    </div>
+                                    <div class="socialaccount_ballot">
+                                        {% get_providers as socialaccount_providers %}
+                                        {% if socialaccount_providers %}
+                                        <p>
+                                            <div class="row">
+                                                <p class="small-info">Connect With Social Media</p>
+                                            </div> 
+                                            <div class="row">
+                                                <ul class="row">
+                                                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                                                </ul>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    {% include "socialaccount/snippets/login_extra.html" %}
+                                    {% else %}
+                                    <div class="signup-div-link">
+                                        <p class="sign-up-link">
+                                          {% blocktrans %}Please for a <p class="site-name">{{ site.name }} acoount</p> <span class="sign-url">
+                                            <a href="{{ signup_url }}">sign up</a>
+                                          </span>
+                                          {% endblocktrans %}
+                                        </p>
+                                      </div>
+                                      {% endif %}
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 box-de">
+                               <div class="inn-cover">
+                                   <div class="ditk-inf">
+                                       <div class="small-logo">
+                                    <i class="fab fa-asymmetrik"></i> Signup Here
+                                </div>
+                                        <h2 class="w-100">
+                                            {% blocktrans %} Have no account? {% endblocktrans %}</h2>
+                                        <p>
+                                        </p>
+                                        <a href="{{ signup_url }}">
+                                        <button type="button" class="btn btn-outline-light">SIGN UP</button>
+                                        </a>
+                                    </div>
+                                     <div class="foter-credit">
+                                      <a href="mailto:jeckonia23@gmail.com">Os-WritersHub</a>  
+                                   </div>
+                               </div>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
         </div>
-      </div>
-      
-  </div>
-</div>
-</section>
+    </div>
+</body>
+
+
+
+{% block extra_js %}
 {% endblock %}
+
+{% include 'front/modify-login/modify_js.html' %}
+{% endblock %}
+
+
+</html>

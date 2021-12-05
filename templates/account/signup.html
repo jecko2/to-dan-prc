@@ -7,98 +7,150 @@
 
 <!-- styles -->
 {% block stylesheet %}
-  <link rel="stylesheet" href="{% static 'css/account/fonts.css' %}">
-  <link rel="stylesheet" href="{% static 'css/account/forms.css' %}">
-  <!-- <link rel="stylesheet" href="{% static 'css/account/hero.css' %}"> -->
+
+  {% include 'front/modify_signup/signup_extra_css.html' %}
+
+  <style>
+    .form-cover .user-username,
+    .form-cover .user-pass1,
+    .form-cover  .user-pass2,
+    .form-cover .user-email{
+        display: flex;
+        border: 1px solid cornflowerblue;
+        height: 2.8rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        margin: 10px auto;
+        
+    }
+    .form-cover .user-username i,
+    .form-cover .user-pass1 i,
+    .form-cover  .user-pass2 i,
+    .form-cover .user-email i{
+        font-size: 20px;
+        color: crimson;
+        display: flex;
+        padding-right: 4px;
+        transform: translateX(-10px);
+    }
+    .form-cover .user-pass1 span input,
+    .form-cover .user-email span input,
+    .form-cover .user-pass2 span input,
+    .form-cover .user-username span input{
+        transform: translateY(15px);
+        background-color: transparent;
+        outline: none;
+        border: none;
+    }
+    .form-cover .user-email span input:active,
+    .form-cover .user-pass1 span input:active,
+    .form-cover .user-pass2 span input:active,
+    .form-cover .user-username span input:active{
+        border: none;
+        outline: none;
+    }
+  </style>
+ 
 {% endblock %}
 <!-- cdn links -->
 {% block cdn_links %}
-    {% include 'cdn_html_link/css_files.html' %}
+    
 {% endblock %}
 
 
-
-
-
 {% block content %}
-<div class="main-content container">
-  <div class="container-get-info user-detail">
-    <h1 class="register-head">Sign Up</h1>
-    <div class="logo-div-reg">
-      <img src="" alt="" class="image-logo">
-    </div>
-    <div class="form-collect-data">
-      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-        {% csrf_token %}
-        <!-- html form  -->
-        <!-- email entry -->
-        <div id="div_id_email" class="form-group"> 
-          <!-- <label for="id_email" class=" requiredField">E-mail<span class="asteriskField"></span> </label> -->
-          <div class="user-detail-span"> 
-             <i class="fas fa-envelope"></i>
-             <span class="email-detail">
-              <input type="email" name="email" placeholder="E-mail address" autocomplete="email"
-              class="textinput textInput form-control" id="id_email" required >
-             </span>
-             </div> 
-            </div>
+    <div class="container-fluid bg-login">
+        <div class="container">
 
-          <!-- email confrimation -->
-          <div id="div_id_username" class="form-group"> 
-            <!-- <label for="id_username" class=" requiredField">Username<span class="asteriskField"></span> </label>  -->
-            <div class="user-detail-span"> 
-              <i class="fas fa-user"></i>
-               <span class="email-detail">
-                <input type="text" name="username" placeholder="Username" minlength="1" 
-                maxlength="100" class="textinput textInput form-control" 
-                  id="id_username" spellcheck="false" data-ms-editor="true" required>
-                </span>
-               </div>
-              </div>
-          <!-- password1 -->
-          <div id="div_id_password1" class="form-group">
-            <!-- <label for="id_password1" class=" requiredField">Password<span class="asteriskField"></span></label> -->
-             <div class="user-detail-span"> 
-               <i class="fas fa-lock"></i> <span class="pass1">
-                <input type="password" name="password1" placeholder="Password" 
-                autocomplete="new-password" class="textinput textInput form-control"
-                 id="id_password1" required>
-               </span>
-               </div>
-              </div>
+            <form method="post" action="{% url 'account_signup' %}">
+                {% csrf_token %}
 
-          <!-- password2 -->
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 login-card">
+                        <div class="row">
+                            <div class="col-md-5 detail-part">
+                                <h1>Join OsWriters Today</h1>
+                                <p>Please use your credentials to login.
+                                    If you are not a member, please register. </p>
+                            </div>
+                            <div class="col-md-7 logn-part">
+                              <div class="row">
+                                  <div class="col-lg-10 col-md-12 mx-auto">
+                                      <div class="logo-cover">
+                                           <img src="{% static 'assets1/images/logo.png' %}" alt="">
+                                       </div>
+                                        <div class="form-cover">
+                                            <h6 style="text-align: center;">
+                                                {% blocktrans  %}
+                                                Account Creation
+                                                {% endblocktrans %}
+                                            </h6>
 
-          <div id="div_id_password2" class="form-group">
-             <!-- <label for="id_password2" class=" requiredField">Password<span class="asteriskField"></span> </label> -->
-              <div class="user-detail-span">
-                <i class="fas fa-lock"></i>
-                <span class="pass2">
-                  <input type="password" name="password2" placeholder="Confirm Password"
-                  class="textinput textInput form-control" id="id_password2" required>
-                </span>
-                </div> 
-              </div>
-          <!-- signup buton -->
-          
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <div class="signup-sucess">
-          <button type="submit" class="btn btn-primary btn-lg">Sign Up &raquo;</button>
+                                            <div class="user-email">
+                                                <i class="fas fa-envelope"></i>
+                                                <span class="email-detail">
+                                                <input type="email" name="email" placeholder="E-mail address" autocomplete="email"
+                                                class="form-control" id="id_email" required >
+                                                </span>
+                                            </div>
+                                            
+                                            <div class="user-username">
+                                                <i class="fas fa-user"></i>
+                                                <span class="username-detail">
+                                                <input type="text" name="username" placeholder="Username" minlength="1" 
+                                                maxlength="100" class="form-control" 
+                                                id="id_username" spellcheck="false" data-ms-editor="true" required>
+                                                </span>
+                                            </div>
+                                            <div class="user-pass1">
+                                                    <i class="fas fa-lock"></i> <span class="pass1">
+                                                    <input type="password" name="password1" placeholder="Enter Password" 
+                                                    autocomplete="new-password" class="form-control"
+                                                     id="id_password1" required>
+                                                   </span>
+                                            </div>
+                                            <div class="user-pass2">
+                                                <i class="fas fa-lock"></i>
+                                                    <span class="pass2">
+                                                    <input type="password" name="password2" placeholder="Confirm Password"
+                                                    class="textinput textInput form-control" id="id_password2" required>
+                                                    </span>
+                                            </div>
+                                             
+                                             <div class="row form-footer">
+                                                 <div class="col-md-6 forget-paswd">
+                                                    
+                                                    <p>{% blocktrans %} Have an account? {% endblocktrans %} <span>
+                                                        <a href="{% url 'account_login' %}">Login</a>
+                                                     </span> </p>
+                                                        
+                                                 </div>
+                                                 {% if redirect_field_value %}
+                                                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                                                {% endif %}
+                                                 <div class="col-md-6 button-div">
+                                                    <button type="submit" class="btn btn-primary btn-lg">Sign Up &raquo;</button>
+                                                 </div>
+                                                 <hr style="color: red;">
+                                            </div>
+                                        </div>
+                                  </div>
+                              </div>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
         </div>
-      </form>
     </div>
-  </div>
-  
-    <div class="have-account account" >
-      <div class="allow-login" id="allow-login">
-        <p class="account-login">
-            <a href="{{ login_url }}">sign in</a>
-        </p>
-      </div>
-    </div>
-</div>
 
+
+    {% block extra_js %}
+
+    {% include 'front/modify_signup/signup_etra_js.html' %}
+
+    {% endblock %}
 
 {% endblock %}
