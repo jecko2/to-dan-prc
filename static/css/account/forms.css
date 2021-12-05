@@ -1,0 +1,239 @@
+@import url('/static/css/base.css');
+
+.email-address-input,
+.password-field-input-box{
+    display: flex;
+    align-items: center;
+    border: 1px solid palegreen;
+    border-radius: 10px;
+    margin: 7px 0;
+}
+
+.email-address-input i{
+    padding: 10px;
+    font-size: 19px;
+    color: var(--twitter-color);
+}
+.password-field-input-box i{
+    padding: 10px 14px 12px 14px;
+    font-size: 20px;
+    color: var(--purplewhite);
+}
+.password-field-input-box input,
+.email-address-input input{
+    border: none;
+    outline: none;
+}
+.email-address-input input:active.emailinput{
+    border: none;
+    outline: none;
+}
+.head-login{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* =====input fields======== */
+
+
+/* =====label====== */
+
+.form-group .requiredField{
+    font-size: 20px;
+    color: var(--dark1);
+}
+
+/* ========texts in the login ============== */
+
+.login-card-box .card-head{
+    align-items: center;
+    text-align: center;
+    padding: 1.3rem 0 0 0;
+}
+.login-card-box .card-head-hidden{
+    display: none;
+}
+.login-card-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+form a.button{
+    margin: 1rem 0;
+    height: 2.7rem;
+}
+
+.form-check{
+    margin: 1rem auto;
+}
+
+.btn-lg{
+    width: 28%;
+    height: 2.8rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: .5rem 0;
+}
+
+.social-sign{
+    width: 90%;
+    margin: .5rem auto;
+    padding: .3rem 0;
+}
+.line-horizontal{
+    width: 100%; 
+    height: 10px; 
+    text-align: center
+}
+.text-aid{
+    overflow: hidden;
+    text-align: center;
+}
+.text-aid::before,
+.text-aid::after{
+    content: "";
+    display: inline-block;
+    height: 3px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+.text-aid::before{
+    background-color: var(--darkblood);
+    right: 0.5em;
+    margin-left: -50%;
+}
+.text-aid::after{
+    left: 0.5em;
+    background-color: var(--darkblood);
+    margin-right: -50%
+}
+
+.socialaccount_ballot p.card-info-social span{
+    color: var(--dark1);
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Outfit', sans-serif;
+    padding: 0 5%;
+}
+
+.normal-view{
+    padding: 0 ;
+}
+
+.head-login .logo-div{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+a.btn-lg{
+    margin-left: 10px;
+    height: 2.4rem;
+    padding: 3px 0 15px 0;
+}
+
+
+/* =====signupform========= */
+.container-get-info{
+    width: 30%;
+    
+} 
+.user-detail .register-head{
+    text-align: center;
+}
+
+.main-content{
+    width: 100%;
+    padding: 30px 12px;
+    height: 80vh;
+    transform: translateY(25px);
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.logo-div-reg{
+    width: 200px;
+    height: 200x;
+}
+.form-group .user-detail-span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rebeccapurple;
+}
+
+.have-account .account{
+    width: 100%;
+}
+.form-group .user-detail-span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--lightyellow);
+    padding: 6px 18px;
+    cursor: pointer;
+    transition: all .4s;
+    margin: 1rem auto;
+    border-radius: 18px;
+}
+.form-group .user-detail-span:hover{
+    border: 1px solid rgb(6, 131, 226);
+}
+.form-group .user-detail-span:active{
+    border: 1px solid rgb(6, 131, 226);
+}
+.form-group .user-detail-span:focus{
+    border: 1px solid rgb(6, 131, 226);
+}
+
+.user-detail-span span input{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transform: translateX(-10%);
+}
+.user-detail-span i{
+    padding-right: 14px;
+    transform: translateX(-80%);
+}
+.signup-sucess button{
+    width: 100%;
+}
+.have-account{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin: .6rem 0 0 0;
+    padding: 12px 0 0 0;
+}
+
+.allow-login{
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 2px 0;
+}
+.allow-login .account-login a{
+    color: #fff;
+    padding-top: 20px;
+    transform: translateY(10px);
+}

@@ -1,0 +1,13 @@
+
+
+.login-card-box{
+    width: 600px;
+    height: 100vh;
+    margin: 0 auto;
+    border: 2px solid crimson;
+    padding: 30px;
+    border-radius: 22px;
+}
+.main-content{
+    width: 100%;
+}

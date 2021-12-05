@@ -1,0 +1,41 @@
+/* =========GOOGLE FONTS ============*/
+@import url(
+    'https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Outfit:wght@400;500;600&family=Poppins:wght@300;400;500;600&family=Ubuntu:wght@400;500&family=Work+Sans:wght@500;600&display=swap'
+);
+:root {
+    --lightred: #E27D60;
+    --paleblue: #85DCB1;
+    --lightyellow: #E8A87C;
+    --blue: #41B3A3;
+    --darkblue: #242582;
+    --whitesmoke: #FBEEC1;
+    --lightwhite: #EDF5E1;
+    --purplewhite: #05386B;
+    --darkblood: #5D5C61;
+    --purle1: #7395AE;
+    --charcoalwhite: #ADADAD;
+    --dark1: #1A1A1D;
+    --white1: #C2CAD0;
+    --dark2: #1F2833;
+    --charcoalwhite: #C5C6C7;
+    --btn-border1: #9A1750;
+    --whiteblurr: #E3E2DF;
+    --watergrey: #116466;
+    --backgroundNav: rgba(175, 129, 117, 0.6);
+    --body-background1: -webkit-radial-gradient(rgb(6, 131, 226), rgb(20, 55, 90));
+    --body-background1: radial-gradient(rgb(6, 131, 226), rgb(20, 55, 90));
+    --headerheight: 3rem;
+    --purewhite: #fff;
+    --twitter-color: #00ACEE;
+    --instagram-color: #d6249f;
+    --facebook-color: #4267B2;
+    --order-background-image: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%);
+
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}

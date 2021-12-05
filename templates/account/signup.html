@@ -1,0 +1,104 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+<!-- styles -->
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/account/fonts.css' %}">
+  <link rel="stylesheet" href="{% static 'css/account/forms.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'css/account/hero.css' %}"> -->
+{% endblock %}
+<!-- cdn links -->
+{% block cdn_links %}
+    {% include 'cdn_html_link/css_files.html' %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<div class="main-content container">
+  <div class="container-get-info user-detail">
+    <h1 class="register-head">Sign Up</h1>
+    <div class="logo-div-reg">
+      <img src="" alt="" class="image-logo">
+    </div>
+    <div class="form-collect-data">
+      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        <!-- html form  -->
+        <!-- email entry -->
+        <div id="div_id_email" class="form-group"> 
+          <!-- <label for="id_email" class=" requiredField">E-mail<span class="asteriskField"></span> </label> -->
+          <div class="user-detail-span"> 
+             <i class="fas fa-envelope"></i>
+             <span class="email-detail">
+              <input type="email" name="email" placeholder="E-mail address" autocomplete="email"
+              class="textinput textInput form-control" id="id_email" required >
+             </span>
+             </div> 
+            </div>
+
+          <!-- email confrimation -->
+          <div id="div_id_username" class="form-group"> 
+            <!-- <label for="id_username" class=" requiredField">Username<span class="asteriskField"></span> </label>  -->
+            <div class="user-detail-span"> 
+              <i class="fas fa-user"></i>
+               <span class="email-detail">
+                <input type="text" name="username" placeholder="Username" minlength="1" 
+                maxlength="100" class="textinput textInput form-control" 
+                  id="id_username" spellcheck="false" data-ms-editor="true" required>
+                </span>
+               </div>
+              </div>
+          <!-- password1 -->
+          <div id="div_id_password1" class="form-group">
+            <!-- <label for="id_password1" class=" requiredField">Password<span class="asteriskField"></span></label> -->
+             <div class="user-detail-span"> 
+               <i class="fas fa-lock"></i> <span class="pass1">
+                <input type="password" name="password1" placeholder="Password" 
+                autocomplete="new-password" class="textinput textInput form-control"
+                 id="id_password1" required>
+               </span>
+               </div>
+              </div>
+
+          <!-- password2 -->
+
+          <div id="div_id_password2" class="form-group">
+             <!-- <label for="id_password2" class=" requiredField">Password<span class="asteriskField"></span> </label> -->
+              <div class="user-detail-span">
+                <i class="fas fa-lock"></i>
+                <span class="pass2">
+                  <input type="password" name="password2" placeholder="Confirm Password"
+                  class="textinput textInput form-control" id="id_password2" required>
+                </span>
+                </div> 
+              </div>
+          <!-- signup buton -->
+          
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class="signup-sucess">
+          <button type="submit" class="btn btn-primary btn-lg">Sign Up &raquo;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+    <div class="have-account account" >
+      <div class="allow-login" id="allow-login">
+        <p class="account-login">
+            <a href="{{ login_url }}">sign in</a>
+        </p>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

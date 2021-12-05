@@ -1,0 +1,79 @@
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% endblock %}
+
+<div class="contact-head">
+    <div class="phone-email-left" >
+        <div class="email-box">
+            <a href="mailto:jeckoni23@gmail.com" class="email-address">
+                <i class="fas fa-envelope"></i> <span>Email Us</span>
+            </a>
+        </div>
+        <div class="phone-box">
+            <a href="" class="phone-call">
+                <i class="fas fa-phone"></i> <span>Call Us</span>
+            </a>
+        </div>
+    </div>
+    <div class="social-icons">
+        <div class="social-icon" id="icon">
+            <a href="" class="facebook-icon">
+                <i class="fab fa-facebook" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="social-icon" id="icon">
+            <a href="" class="twitter-icon">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="social-icon" id="icon">
+            <a href="" class="instagram-icon">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="navbar">
+    <div class="container main">
+        <div class="logo" id="logo">
+            <img src="{% static 'img/logo-oss.pnp' %}" alt="" class="img-logo">
+        </div>
+        <nav class="nav-items">
+            <ul class="nav-links" id="nav-links">
+                <li class="nav-item">
+                    <a href="" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Services</a>
+                </li>
+                
+                {% if user.is_authenticated  %}
+                <li class="nav-item">
+                    <a href="{% url 'task-upload' %}" class="nav-link" id="order">Order Paper</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'account_logout' %}" class="nav-link">
+                       <i class="fas fa-user-circle"></i> <span>{{ user.username }}</span>
+                    </a>
+                </li>
+                {% else %}
+
+                <li class="nav-item">
+                    <a href="{% url 'account_login' %}" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'account_signup' %}" class="nav-link">Signup</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+{% block javascript %}
+<script src="{% static 'js/scroll.js' %}"></script>
+{% endblock %}

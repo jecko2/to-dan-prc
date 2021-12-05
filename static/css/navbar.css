@@ -1,0 +1,131 @@
+@import url('base.css');
+*{
+    list-style: none;
+    text-decoration: none;
+}
+.navbar{
+    overflow: hidden;
+}
+.contact-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 2.5rem;
+    width: 1300px;
+    margin: 0 auto;
+}
+.phone-email-left,
+.social-icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.phone-email-left .email-box{
+    padding: 0 1.2rem 0 0;
+}
+.phone-call,
+.email-address{
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.email-address span{
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+.phone-box .phone-call:hover span,
+.email-box .email-address:hover span{
+    transform: translateY(3rem);
+    color: var(--dark2);
+}
+.email-address i,
+.phone-call i{
+    padding: 0 .3rem 0 0;
+}
+/* =====social icon======= */
+.social-icons{
+    padding: 0 1.2rem;
+    width: calc(100% - 80%)
+}
+.social-icon{
+    padding: 0 10px;
+    font-family: 'Lato', sans-serif;
+}
+.facebook-icon i{
+    color: var(--facebook-color);
+    font-size: 20px;
+}
+.twitter-icon i{
+    color: var(--twitter-color);
+    font-size: 20px;
+}
+.instagram-icon i{
+    font-size: 20px;
+    border-radius: 20px;
+    color: var(--instagram-color);
+    
+}
+/* ===========navigation menu========== */
+.navbar{
+    min-height: var(--headerheight);
+    background-color: var(--watergrey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.logo{
+    width: 40px;
+    height: 30px;
+    background-color: var(--body-background1);
+    object-fit: contain;
+}
+.logo .img-logo{
+    color: var(--white1);
+    
+}
+.nav-items .nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-links{
+    padding-top: 5px;
+}
+.nav-item .nav-link{
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    color: var(--purewhite);
+    letter-spacing: 1px;
+    transition: all .3s;
+}
+.nav-link#order{
+    padding: .3rem .5rem;
+    border-radius: 22px;
+    text-align: center;
+    transition: all .3s cubic-bezier(.25,.8,.25,1);
+    background-image: var(--order-background-image);
+    background-size: 200% auto;
+}
+.nav-link:hover{
+    color: var(--white1);
+}
+.nav-link:hover#order{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-position: right center;
+}
+
+.nav-link i.fas.fa-user-circle{
+    font-size: 22px;
+    
+}
+/* ========making the navbar sticky========= */
+
+.sticky{
+    position: fixed;
+    top: 3px;
+    width: 100%;
+}

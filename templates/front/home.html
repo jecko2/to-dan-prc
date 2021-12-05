@@ -1,0 +1,28 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %}
+    WELCOME
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/hero.css' %}">
+{% endblock %}
+
+{% block navbar %}
+{% include './utilities_pages/navbar.html' %}
+{% endblock %}
+
+{% block content %}
+    <section class="hero section-home" id="hero">
+        <div class="container main">
+            <div class="content-card">
+                <h2 class="head-content">Welcome to <span class="animate-head">
+                    Os <span inner-animate>Writers</span>
+                </span>
+                </h2>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
